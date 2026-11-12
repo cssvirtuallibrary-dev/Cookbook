@@ -1,0 +1,2 @@
+function value(name: string): string { const v = process.env[name]; if (!v) throw new Error(`Missing required environment variable: ${name}`); return v; }
+export const config = { sheetId: () => value('GOOGLE_SHEETS_ID'), driveFolderId: () => value('GOOGLE_DRIVE_FOLDER_ID'), serviceAccount: () => JSON.parse(value('GOOGLE_SERVICE_ACCOUNT_JSON')), familyPin: () => value('FAMILY_PIN'), adminPin: () => value('ADMIN_PIN'), sessionSecret: () => value('SESSION_SECRET'), sessionVersion: () => process.env.SESSION_VERSION || '1' };
